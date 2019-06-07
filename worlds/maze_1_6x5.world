@@ -70,5 +70,11 @@
       <pose>0 0 0 0 0 0</pose>
     </include>
 
+    <!-- A maze made of plywood panels -->
+    <include>
+      <uri>model://maze_1_6x5</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
   </world>
 </sdf>
