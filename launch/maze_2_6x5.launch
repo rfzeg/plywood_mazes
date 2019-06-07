@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Start Gazebo witha specific world file -->
+
+<launch>
+
+  <env name="GAZEBO_MODEL_PATH" value="$(find plywood_mazes)/models/" />
+<!-- <env name="GAZEBO_RESOURCE_PATH" value="$(find plywood_mazes)/media/materials" /> -->
+
+<!-- Arguments that can be passed to this launch file from the CLI, for example paused:=true -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="physics" default="ode"/>
+  <arg name="extra_gazebo_args" default="--verbose"/>
+  <!-- Configure as required -->
+  <!-- <arg name="world_name" default="worlds/empty.world"/> -->
+  <arg name="world_name" default="$(find plywood_mazes)/worlds/maze_2_6x5.world"/>
+
+<!-- Launch Gazebo with the specified world -->
+<include file="$(find gazebo_ros)/launch/empty_world.launch">
+  <arg name="paused" value="$(arg paused)" />
+  <arg name="use_sim_time" value="$(arg use_sim_time)" />
+  <arg name="gui" value="$(arg gui)" />
+  <arg name="headless" value="$(arg headless)" />
+  <arg name="debug" value="$(arg debug)" />
+  <arg name="physics" default="$(arg physics)"/>
+  <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
+  <arg name="world_name" value="$(arg world_name)" />    
+</include>
+
+</launch>
