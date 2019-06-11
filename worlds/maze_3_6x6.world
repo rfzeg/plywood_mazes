@@ -67,13 +67,19 @@
     <!-- A wooden parquet ground plane -->
     <include>
       <uri>model://floor_parquet2</uri>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0.5 0 0 0 0</pose>
     </include>
 
     <!-- A maze made of plywood panels -->
     <include>
       <uri>model://maze_3_6x6</uri>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>-3 -2.5 0 0 0 0</pose>
+    </include>
+
+    <!-- A set of tag36h11 AprilTags that match the panel positions -->
+    <include>
+      <uri>model://maze_3_tags</uri>
+      <pose>-3 -2.5 0 0 0 0</pose>
     </include>
 
   </world>
