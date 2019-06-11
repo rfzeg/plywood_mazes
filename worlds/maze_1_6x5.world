@@ -73,7 +73,13 @@
     <!-- A maze made of plywood panels -->
     <include>
       <uri>model://maze_1_6x5</uri>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>-2.5 -2.5 0 0 0 0</pose>
+    </include>
+
+    <!-- A set of tag36h11 AprilTags -->
+    <include>
+      <uri>model://maze_1_tags</uri>
+      <pose>-2.5 -2.5 0 0 0 0</pose>
     </include>
 
   </world>
