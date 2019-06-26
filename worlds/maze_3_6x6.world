@@ -10,6 +10,15 @@
       <!--   <gravity>0 0 0</gravity> -->
     </physics>
 
+    <!-- View persepective at startup -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>4.70771 -4.35195 3.8148 0 0.575643 2.3522</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+
     <!-- Disable shadows, disable grid -->
     <scene>
       <shadows>false</shadows>
