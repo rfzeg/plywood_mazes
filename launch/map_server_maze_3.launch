@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- Loads a pre-made map using map_server -->
+<launch>
+
+  <arg name="map_file" value="maps/maze_3.yaml">
+  </arg> 
+
+  <node name="map_server" pkg="map_server" type="map_server" args=" $(find plywood_mazes)/$(arg map_file)" />
+
+</launch>
