@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sends URDF to param server and spawns robot in Gazebo world -->
+<!-- Requires: Gazebo simulation running -->
+
+<launch>
+  <!-- Arguments that can be passed in from the CLI, for example model:=waffle -->
+  <arg name="model" default="burger_for_autorace" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="robot_name" default="turtle_1"/>
+  <arg name="pos_x" default="0.0"/>
+  <arg name="pos_y" default="0.0"/>
+  <arg name="pos_z" default="0.0"/>
+  <arg name="yaw" default ="0"/>
+
+  <!-- Send URDF to parameter server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <!-- Spawn robot in Gazebo -->
+  <node name="urdf_robot_model_spawner" pkg="gazebo_ros" type="spawn_model"
+  args="-param robot_description
+  -urdf
+  -x $(arg pos_x)
+  -y $(arg pos_y)
+  -z $(arg pos_z)
+  -Y $(arg yaw)
+  -model $(arg robot_name)"
+  respawn="false" output="screen"/>
+
+</launch>
