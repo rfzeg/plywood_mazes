@@ -9,6 +9,175 @@
         <unit meter="0.0254" name="inch" />
         <up_axis>Z_UP</up_axis>
     </asset>
+
+    <!-- Step 1: Insert NEW <library_effects> </library_effects> -->
+    <library_effects>
+    <!-- Step 2: Set <effect id=""> according to url in <library_materials> <instance_effect url="" -->
+    <!-- Add one <effect id=""> </effect> pair per texture in geometry -->
+    <effect id="ID5">
+      <profile_COMMON>
+
+        <!-- Step 3a: Rename these, use original <newparam sid=""> tags -->
+        <newparam sid="ID7">
+          <surface type="2D">
+            <!-- Step 3a: Set <init_from> according to id in <library_images> <image id="xxx"  -->
+            <init_from>ID6</init_from>
+          </surface>
+        </newparam>
+        <!-- Step 3b: Rename these, use original <newparam sid=""> tags -->
+        <newparam sid="ID8">
+          <sampler2D>
+            <!-- Step 3b: Use original source values -->
+            <source>ID7</source>
+          </sampler2D>
+        </newparam>
+
+        <technique sid="COMMON">
+          <blinn>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>1.0 1.0 1.0 1</color>
+            </ambient>
+            <diffuse>
+              <!-- Step 4: Use original <technique sid=""> <texture texture= .. values -->
+              <texture texture="ID8" texcoord="UVSET0" />
+            </diffuse>
+            <specular>
+              <color>0.9 0.9 0.9 1</color>
+            </specular>
+            <shininess>
+              <float>10</float>
+            </shininess>
+            <reflective>
+              <color>0 0 0 1</color>
+            </reflective>
+            <transparent opaque="A_ONE">
+              <color>1 1 1 1</color>
+            </transparent>
+            <transparency>
+              <float>1</float>
+            </transparency>
+          </blinn>
+          <extra>
+            <technique profile="OpenCOLLADA3dsMax">
+              <specularLevel>
+                <!-- Step 4: Use original <technique sid=""> <texture texture= .. values -->
+                <texture texture="ID8" texcoord="UVSET0"/>
+              </specularLevel>
+            </technique>
+          </extra>
+        </technique>
+      </profile_COMMON>
+
+      <extra>
+        <technique profile="OpenCOLLADA3dsMax">
+          <extended_shader>
+            <apply_reflection_dimming>0</apply_reflection_dimming>
+            <dim_level>0</dim_level>
+            <falloff_type>0</falloff_type>
+            <index_of_refraction>1.5</index_of_refraction>
+            <opacity_type>0</opacity_type>
+            <reflection_level>3</reflection_level>
+            <wire_size>1</wire_size>
+            <wire_units>0</wire_units>
+          </extended_shader>
+          <shader>
+            <ambient_diffuse_lock>1</ambient_diffuse_lock>
+            <ambient_diffuse_texture_lock>1</ambient_diffuse_texture_lock>
+            <diffuse_specular_lock>0</diffuse_specular_lock>
+            <soften>0.1</soften>
+            <use_self_illum_color>0</use_self_illum_color>
+          </shader>
+        </technique>
+      </extra>
+    </effect>
+
+    <!-- Add one <effect id=""> </effect> pair per texture in geometry -->
+    <effect id="ID18">
+      <profile_COMMON>
+      
+        <!-- Step 3a: Rename these, use original <newparam sid=""> tags -->
+        <newparam sid="ID20">
+          <surface type="2D">
+            <!-- Step 3a: Set <init_from> according to id in <library_images> <image id="xxx"  -->
+            <init_from>ID19</init_from>
+          </surface>
+        </newparam>
+        <!-- Step 3b: Rename these, use original <newparam sid=""> tags -->
+        <newparam sid="ID21">
+          <sampler2D>
+            <!-- Step 3b: Use original source values -->
+            <source>ID20</source>
+          </sampler2D>
+        </newparam>
+
+        <technique sid="COMMON">
+          <blinn>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>1.0 1.0 1.0 1</color>
+            </ambient>
+            <diffuse>
+              <!-- Step 4: Use original <technique sid=""> <texture texture= .. values -->
+              <texture texture="ID21" texcoord="UVSET0" />
+            </diffuse>
+            <specular>
+              <color>0.9 0.9 0.9 1</color>
+            </specular>
+            <shininess>
+              <float>10</float>
+            </shininess>
+            <reflective>
+              <color>0 0 0 1</color>
+            </reflective>
+            <transparent opaque="A_ONE">
+              <color>1 1 1 1</color>
+            </transparent>
+            <transparency>
+              <float>1</float>
+            </transparency>
+          </blinn>
+          <extra>
+            <technique profile="OpenCOLLADA3dsMax">
+              <specularLevel>
+                <!-- Step 4: Use original <technique sid=""> <texture texture= .. values -->
+                <texture texture="ID21" texcoord="UVSET0" />
+              </specularLevel>
+            </technique>
+          </extra>
+        </technique>
+      </profile_COMMON>
+
+      <extra>
+        <technique profile="OpenCOLLADA3dsMax">
+          <extended_shader>
+            <apply_reflection_dimming>0</apply_reflection_dimming>
+            <dim_level>0</dim_level>
+            <falloff_type>0</falloff_type>
+            <index_of_refraction>1.5</index_of_refraction>
+            <opacity_type>0</opacity_type>
+            <reflection_level>3</reflection_level>
+            <wire_size>1</wire_size>
+            <wire_units>0</wire_units>
+          </extended_shader>
+          <shader>
+            <ambient_diffuse_lock>1</ambient_diffuse_lock>
+            <ambient_diffuse_texture_lock>1</ambient_diffuse_texture_lock>
+            <diffuse_specular_lock>0</diffuse_specular_lock>
+            <soften>0.1</soften>
+            <use_self_illum_color>0</use_self_illum_color>
+          </shader>
+        </technique>
+      </extra>
+    </effect>
+    
+  </library_effects>
+  <!-- END OF NEW <library_effects> -->
+
     <library_cameras>
         <camera id="ID1" name="skp_camera_Last_Saved_SketchUp_View">
             <optics>
@@ -188,6 +357,8 @@
             </mesh>
         </geometry>
     </library_geometries>
+
+    <!-- pick id's -->
     <library_materials>
         <material id="ID4" name="balic_berch3">
             <instance_effect url="#ID5" />
@@ -196,50 +367,7 @@
             <instance_effect url="#ID18" />
         </material>
     </library_materials>
-    <library_effects>
-        <effect id="ID5">
-            <profile_COMMON>
-                <newparam sid="ID7">
-                    <surface type="2D">
-                        <init_from>ID6</init_from>
-                    </surface>
-                </newparam>
-                <newparam sid="ID8">
-                    <sampler2D>
-                        <source>ID7</source>
-                    </sampler2D>
-                </newparam>
-                <technique sid="COMMON">
-                    <lambert>
-                        <diffuse>
-                            <texture texture="ID8" texcoord="UVSET0" />
-                        </diffuse>
-                    </lambert>
-                </technique>
-            </profile_COMMON>
-        </effect>
-        <effect id="ID18">
-            <profile_COMMON>
-                <newparam sid="ID20">
-                    <surface type="2D">
-                        <init_from>ID19</init_from>
-                    </surface>
-                </newparam>
-                <newparam sid="ID21">
-                    <sampler2D>
-                        <source>ID20</source>
-                    </sampler2D>
-                </newparam>
-                <technique sid="COMMON">
-                    <lambert>
-                        <diffuse>
-                            <texture texture="ID21" texcoord="UVSET0" />
-                        </diffuse>
-                    </lambert>
-                </technique>
-            </profile_COMMON>
-        </effect>
-    </library_effects>
+
     <library_images>
         <image id="ID6">
             <init_from>../textures/balic_berch3.jpg</init_from>
