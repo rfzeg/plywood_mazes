@@ -45,19 +45,68 @@
           </sampler2D>
         </newparam>
         <technique sid="common">
-          <lambert>
+        <!-- replace element <lambert> and use <blinn> instead -->
+          <blinn>
             <emission>
               <color sid="emission">0 0 0 1</color>
             </emission>
+            <ambient>
+              <color>1.0 1.0 1.0 1</color>
+            </ambient>
             <diffuse>
+              <!-- Use original <technique sid=""> <texture texture= .. values -->
               <texture texture="metal_plate_stripe_png-sampler" texcoord="UVMap"/>
             </diffuse>
-            <index_of_refraction>
-              <float sid="ior">1.45</float>
-            </index_of_refraction>
-          </lambert>
+            <specular>
+              <color>0.9 0.9 0.9 1</color>
+            </specular>
+            <shininess>
+              <float>10</float>
+            </shininess>
+            <reflective>
+              <color>0 0 0 1</color>
+            </reflective>
+            <transparent opaque="A_ONE">
+              <color>1 1 1 1</color>
+            </transparent>
+            <transparency>
+              <float>1</float>
+            </transparency>
+          </blinn>
+          <!-- End of replace <lambert> and use <blinn> instead -->
+          <extra>
+            <technique profile="OpenCOLLADA3dsMax">
+              <specularLevel>
+                <!-- Use original <technique sid=""> <texture texture= .. values -->
+                <texture texture="metal_plate_stripe_png-sampler" texcoord="UVMap"/>
+              </specularLevel>
+            </technique>
+          </extra>
         </technique>
       </profile_COMMON>
+      <!-- Add this <extra> element -->
+      <extra>
+        <technique profile="OpenCOLLADA3dsMax">
+          <extended_shader>
+            <apply_reflection_dimming>0</apply_reflection_dimming>
+            <dim_level>0</dim_level>
+            <falloff_type>0</falloff_type>
+            <index_of_refraction>1.5</index_of_refraction>
+            <opacity_type>0</opacity_type>
+            <reflection_level>3</reflection_level>
+            <wire_size>1</wire_size>
+            <wire_units>0</wire_units>
+          </extended_shader>
+          <shader>
+            <ambient_diffuse_lock>1</ambient_diffuse_lock>
+            <ambient_diffuse_texture_lock>1</ambient_diffuse_texture_lock>
+            <diffuse_specular_lock>0</diffuse_specular_lock>
+            <soften>0.1</soften>
+            <use_self_illum_color>0</use_self_illum_color>
+          </shader>
+        </technique>
+      </extra>
+      <!-- End of <extra> element -->
     </effect>
   </library_effects>
   <library_images>
